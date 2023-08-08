@@ -8,6 +8,7 @@ const bot = new Telegraf(botToken);
 
 bot.start((ctx) => {
   ctx.reply('Welcome! Use /getlink to request an invite link to the private group.');
+  console.log('bot started')
 });
 
 bot.command('getlink', async (ctx) => {
@@ -17,8 +18,10 @@ bot.command('getlink', async (ctx) => {
     if (sourceChatMember.status === 'member' || sourceChatMember.status === 'administrator' || sourceChatMember.status === 'creator') {
       // const inviteLink = await ctx.telegram.exportChatInviteLink(targetGroupId);
       ctx.reply(`Here is the invite link to the private group: https://t.me/+t6rUHkeYl9k3YTdk`);
+        console.log('Here is the invite link to the private group: https://t.me/+t6rUHkeYl9k3YTdk')
     } else {
       ctx.reply('Sorry, you need to be a member of the source group to get the invite link.');
+        console.log('Sorry, you need to be a member of the source group to get the invite link.')
     }
   } catch (error) {
     console.error('Error:', error);
